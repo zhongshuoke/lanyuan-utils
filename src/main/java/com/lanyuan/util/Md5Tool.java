@@ -13,6 +13,7 @@ public class Md5Tool {
 				MessageDigest md = MessageDigest.getInstance("MD5");
 				BASE64Encoder base = new BASE64Encoder();
 				//加密后的字符串
+				System.out.println(md.digest(password.getBytes("utf-8")));
 				str = base.encode(md.digest(password.getBytes("utf-8")));
 			} catch (Exception e) {
 				e.printStackTrace();
