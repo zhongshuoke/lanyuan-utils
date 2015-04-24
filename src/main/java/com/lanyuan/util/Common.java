@@ -377,5 +377,25 @@ public class Common {
         BigDecimal b2 = new BigDecimal(Double.toString(v2));
         return b1.divide(b2,scale,BigDecimal.ROUND_HALF_UP).doubleValue();
     }
-  
+    
+	/**
+	 * 获取传入参数n的各位数值之和的个位数
+	 * 做了特殊处理，避免了为0的返回值
+	 * @param n
+	 * @return
+	 */
+    public static int sumDig(int n)
+    {
+    	int result=0; //定义一个int类型的变量来存取最后结果
+    	while(n!=0) //判断所要进行查询的数是不是为0
+    	{ 
+    		result+=n%10; //获得其各位上的数字
+    		n/=10;
+    	}
+    	if(result%10==0){
+    		return 1;
+    	}else{
+    		return result%10; //取得最终结果
+    	}
+    }
 }
